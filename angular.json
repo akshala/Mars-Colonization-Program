@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Mars-Colonization-Program"
+    }
+  },
+  "defaultProject": "Mars-Colonization-Program",
+  "cli": {
+    "analytics": "3e26be59-0213-4686-971c-b4e89db89c7c"
+  }
 }
