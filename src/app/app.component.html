@@ -1,9 +1,0 @@
-<div ng-app = "tic-tac-toe" ng-controller = "gameCtrl">
-    <table>
-      <tr *ngFor = "let row of rows">
-        <td *ngFor = "let col of columns" style="height:100px;width:100px" (click) = "setValue(row, col)">
-            <h1>{{gridContent[row][col]}}</h1>
-        </td>
-      </tr>
-    </table>
-</div>
