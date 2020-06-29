@@ -54,11 +54,12 @@ export class BoardComponent implements OnInit {
           return;
       }
       else {
-        this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
+        //this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
+        let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
+        this.AImove(robot, 3);
       }
     }
-    //let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
-    //this.AImove(robot, 3);
+    
   }
 
   isDraw(): boolean {
