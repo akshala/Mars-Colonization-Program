@@ -86,4 +86,54 @@ export class BoardComponent implements OnInit {
     return false;
   }
 
+  playerWon(s: String): boolean{
+    // horizontal
+    for(const columns of this.board) {
+      if(columns[0] === columns[1] && columns[0] === columns[2] && columns[0] === s) {
+        return true;
+      }
+    }
+    // vertical
+    for(let col=0; col<this.board[0].length; col++) {
+      if (this.board[0][col] === this.board[1][col] && this.board[0][0] === this.board[2][col] && this.board[0][col] === s) {
+        return true;
+      }
+    }
+    // diagonal
+    if(this.board[0][0] === this.board[1][1] && this.board[0][0] === this.board[2][2] && this.board[0][0] === s) {
+      return true;
+    }
+    if(this.board[0][2] === this.board[1][1] && this.board[0][2] == this.board[2][0] && this.board[0][2] === s) {
+      return true;
+    }
+    return false;
+  }
+
+  AImove() : void{
+    
+  }
+
+  moveLeft(): boolean {
+    for(let row = 0; row<3; row++){
+      for(let col = 0; col<3; col++){
+        if(this.board[row][col]===CellEnum.EMPTY){
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+  bestMove(): number {
+    if(!this.moveLeft()){
+        return 0;
+    }
+    if(this.playerWon('X')){
+      return 1;
+    }
+    if(this.playerWon('O')){
+      return -1;
+    }
+
+  }
+
 }
