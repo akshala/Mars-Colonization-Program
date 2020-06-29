@@ -1,0 +1,8 @@
+<!-- If column is not 2 make vertical line
+if row is not 2 make horizontal line -->
+
+<div class="cell align-middle"
+        [ngClass]="{'v1': col != 3, 'h1': row != 3}">
+    {{piece}}
+</div>
+

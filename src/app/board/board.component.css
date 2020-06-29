@@ -1,0 +1,19 @@
+.board {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    color: #fff;
+}
+
+/* Status message for whose turn it is */
+.status {
+    color: black;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* Option for new game */
+.new-game {
+    width: 100%;
+}
