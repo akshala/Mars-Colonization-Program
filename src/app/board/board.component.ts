@@ -64,16 +64,18 @@ export class BoardComponent implements OnInit {
         //this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         this.AImove(robot, 3);
-        if (this.isWin() === 'Computer') {
-          console.log('wth is wrong')
-          this.statusMessage = 'You lose!';
-          this.isGameOver = true;
-          return;
-        }
-        else if(this.isDraw()) {
-          this.statusMessage = 'It\'s a Draw!';
-          this.isGameOver = true;
-          return;
+        if(this.isGameOver === false) {
+          if (this.isWin() === 'Computer') {
+            console.log('wth is wrong')
+            this.statusMessage = 'You lose!';
+            this.isGameOver = true;
+            return;
+          }
+          else if(this.isDraw()) {
+            this.statusMessage = 'It\'s a Draw!';
+            this.isGameOver = true;
+            return;
+          }
         }
       }
     }
