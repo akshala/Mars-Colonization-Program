@@ -36,7 +36,7 @@ export class BoardComponent implements OnInit {
     }
     this.currentPlayer = CellEnum.x;
     this.isGameOver = false;
-    this.statusMessage = 'Player $(this.currentPlayer) turn';
+    // this.statusMessage = 'Player ' + this.currentPlayer + ' turn';
   }
 
   move(row: number, col: number): void {
@@ -48,15 +48,25 @@ export class BoardComponent implements OnInit {
         this.isGameOver = true;
         return;
       }
-      else if(this.isWin()) {
-          this.statusMessage = 'player $(this.currentPlayer) won!';
+      else if(this.isWin() === 'You') {
+          this.statusMessage = 'You won!';
           this.isGameOver = true;
           return;
       }
+      else if(this.isWin() === 'Computer') {
+        this.statusMessage = 'You lose!';
+        this.isGameOver = true;
+        return;
+    }
       else {
         //this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         this.AImove(robot, 3);
+        if (this.isWin() === 'Computer') {
+          this.statusMessage = 'You lose!';
+          this.isGameOver = true;
+          return;
+        }
       }
     }
     
@@ -73,9 +83,15 @@ export class BoardComponent implements OnInit {
     return !this.isWin();
   }
 
-  isWin(): boolean {
+  isWin(): string {
     //horizontal
-    return this.playerWon(CellEnum.x) || this.playerWon(CellEnum.o);
+    if(this.playerWon(CellEnum.x)) {
+        return 'You';
+    }  
+    if(this.playerWon(CellEnum.o)) {
+        return 'Computer';
+    }
+    return ''
   }
 
   playerWon(player: CellEnum): boolean{
