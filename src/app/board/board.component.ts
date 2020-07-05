@@ -36,6 +36,7 @@ export class BoardComponent implements OnInit {
     }
     this.currentPlayer = CellEnum.x;
     this.isGameOver = false;
+    this.statusMessage = ''
     // this.statusMessage = 'Player ' + this.currentPlayer + ' turn';
   }
 
@@ -54,6 +55,7 @@ export class BoardComponent implements OnInit {
           return;
       }
       else if(this.isWin() === 'Computer') {
+        console.log('loser')
         this.statusMessage = 'You lose!';
         this.isGameOver = true;
         return;
@@ -63,6 +65,7 @@ export class BoardComponent implements OnInit {
         let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         this.AImove(robot, 3);
         if (this.isWin() === 'Computer') {
+          console.log('wth is wrong')
           this.statusMessage = 'You lose!';
           this.isGameOver = true;
           return;
@@ -110,6 +113,7 @@ export class BoardComponent implements OnInit {
 
   playerWon(player: CellEnum): boolean{
     // horizontal
+    
     for(const columns of this.myBoard) {
       if(columns[0] === columns[1] && columns[0] === columns[2] && columns[0] === player) {
         return true;

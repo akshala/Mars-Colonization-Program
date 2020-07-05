@@ -17,11 +17,11 @@
         {{row}}, {{col}}, {{board[row][col]}}
     </div>
     </div> -->
-    
+
     <!-- This div is for a blank div -->
     <div class="pt-2"></div>
      <!-- New game button is only diplayed when the game is over -->
-    <button *ngif="gameOver"
+    <button *ngIf="gameOver"
         class="btn btn-primary new-game"
         (click) = "newGame()">New Game</button>
 </div>
