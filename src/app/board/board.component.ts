@@ -67,9 +67,14 @@ export class BoardComponent implements OnInit {
           this.isGameOver = true;
           return;
         }
+        else if(this.isDraw()) {
+          this.statusMessage = 'It\'s a Draw!';
+          this.isGameOver = true;
+          return;
+        }
       }
     }
-    
+
   }
 
   isDraw(): boolean {
@@ -80,11 +85,20 @@ export class BoardComponent implements OnInit {
         }
       }
     }
-    return !this.isWin();
+    return !this.bool_isWin();
+  }
+
+  bool_isWin(): boolean {
+    if(this.playerWon(CellEnum.x)) {
+        return true;
+    }  
+    if(this.playerWon(CellEnum.o)) {
+        return true;
+    }
+    return false;
   }
 
   isWin(): string {
-    //horizontal
     if(this.playerWon(CellEnum.x)) {
         return 'You';
     }  
