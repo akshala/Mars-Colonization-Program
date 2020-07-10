@@ -63,7 +63,7 @@ export class BoardComponent implements OnInit {
       else {
         //this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
-        this.AImove(robot, 3);
+        this.AImove(robot, 4);
         if(this.isGameOver === false) {
           if (this.isWin() === 'Computer') {
             console.log('wth is wrong')
@@ -123,7 +123,7 @@ export class BoardComponent implements OnInit {
     }
     // vertical
     for(let col=0; col<this.myBoard[0].length; col++) {
-      if (this.myBoard[0][col] === this.myBoard[1][col] && this.myBoard[0][0] === this.myBoard[2][col] && this.myBoard[0][col] === player) {
+      if (this.myBoard[0][col] === this.myBoard[1][col] && this.myBoard[0][col] === this.myBoard[2][col] && this.myBoard[0][col] === player) {
         return true;
       }
     }
