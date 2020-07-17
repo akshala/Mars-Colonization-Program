@@ -1,5 +1,35 @@
 .main-app {
     margin: 0 auto;
-    max-width: 300px;
+    width: 100%;
     color: #34495e;
+    background-color: blue;
+}
+
+.left {
+    width: 42%;
+    float: left;
+}
+
+.center {
+    width: 33%;
+    float: left;
+}
+
+.right {
+    width: 15%;
+    float: left;
+}
+
+.player{
+    height: 100px;
+    width: 100px;
+}
+
+.computer{
+    height: 10%;
+    width: 50px;
+}
+
+.background {
+    background-color: coral;
 }
