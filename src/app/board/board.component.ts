@@ -12,6 +12,9 @@ export class BoardComponent implements OnInit {
   private myBoard: CellEnum[][];
   private isGameOver: boolean;
   public statusMessage;
+  public curr_level;
+
+  levels = [0, 1, 2, 3]
 
   constructor() { }
 
@@ -63,7 +66,7 @@ export class BoardComponent implements OnInit {
       else {
         //this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
         let robot = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
-        this.AImove(robot, 3);
+        this.AImove(robot, this.curr_level);
         if(this.isGameOver === false) {
           if (this.isWin() === 'Computer') {
             console.log('wth is wrong')

@@ -20,6 +20,14 @@
 
     <!-- This div is for a blank div -->
     <div class="pt-2">
+
+    <div>
+        <span> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select Level  &nbsp;&nbsp;&nbsp;&nbsp; </span>
+        <select>
+            <option *ngFor="let level of levels">{{level}}</option>
+        </select>
+    </div>
+    <br> 
     </div>
      <!-- New game button is only diplayed when the game is over -->
     <button *ngIf="gameOver"
