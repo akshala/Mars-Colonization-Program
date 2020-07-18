@@ -23,9 +23,13 @@
 
     <div>
         <span> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select Level  &nbsp;&nbsp;&nbsp;&nbsp; </span>
-        <select>
-            <option *ngFor="let level of levels">{{level}}</option>
+        <select [(ngModel)]="curr_level" >
+            <option [ngValue]=0 selected>0</option>
+            <option [ngValue]=1>1</option>
+            <option [ngValue]=2>2</option>
+            <option [ngValue]=3>3</option>
         </select>
+        <!-- <p>level: {{curr_level}}</p> -->
     </div>
     <br> 
     </div>
